@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaq&Kobe</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/roslib/build/roslib.min.js"></script> -->
+    <script src="js/roslib.min.js"></script>
+
+
+</head>
+<body>
+
+    <div class="status-bar">
+        <p>ROS Connection: <span id="ros_status" class="status-dot disconnected"></span></p>
+        <p>Shaq Pi API: <span id="shaq_api_status" class="status-dot disconnected"></span></p>
+    </div>
+    
+
+
+    <div class="robot-container">
+        <div class="robot-block" id="shaq_data">
+            <h3>Shaq</h3>
+            
+            <h3>/shaq/cmd_move/rpm</h3>
+            <p>Linear.x:
+                <div class="rpm-bar-container">
+                  <div id="shaq_move_linear_x" class="rpm-bar"></div>
+                </div>
+              </p>
+              <p>Linear.y:
+                <div class="rpm-bar-container">
+                  <div id="shaq_move_linear_y" class="rpm-bar"></div>
+                </div>
+              </p>
+              <p>Anuglar.x:
+                <div class="rpm-bar-container">
+                  <div id="shaq_move_angular_x" class="rpm-bar"></div>
+                </div>
+              </p>
+              <p>Anuglar.y:
+                <div class="rpm-bar-container">
+                  <div id="shaq_move_angular_y" class="rpm-bar"></div>
+                </div>
+              </p>
+
+            <h3>/shaq/cmd_shoot/rpm</h3>
+            <div id="shaq_shoot">
+                <p>Linear.x:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_linear_x" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Linear.y:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_linear_y" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Linear.z:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_linear_z" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Anuglar.x:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_angular_x" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Anuglar.y:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_angular_y" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Anuglar.z:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_angular_z" class="rpm-bar"></div>
+                    </div>
+                  </p>
+            
+            </div>
+
+            <h3>/shaq/send_where_hoop</h3>
+            <div id="shaq_hoop">
+            <p>Linear.x: <span id="shaq_hoop_linear_x"></span></p>
+            <p>Linear.y: <span id="shaq_hoop_linear_y"></span></p>
+            <p>Linear.z: <span id="shaq_hoop_linear_z"></span></p>
+            <p>Angular.x: <span id="shaq_hoop_angular_x"></span></p>
+            <p>Angular.y: <span id="shaq_hoop_angular_y"></span></p>
+            <p>Angular.z: <span id="shaq_hoop_angular_z"></span></p>
+            </div>
+
+            <h3>/shaq/distance/kobe</h3>
+            <div id="shaq_april">
+            <p>Linear.x: <span id="shaq_april_linear_x"></span></p>
+            <p>Linear.y: <span id="shaq_april_linear_y"></span></p>
+            <p>Linear.z: <span id="shaq_april_linear_z"></span></p>
+            <p>Angular.x: <span id="shaq_april_angular_x"></span></p>
+            <p>Angular.y: <span id="shaq_april_angular_y"></span></p>
+            <p>Angular.z: <span id="shaq_april_angular_z"></span></p>
+            </div>
+
+            <p>Shaq_Mode: <span id = "shaq_mode_angular_x"></span></p>
+
+            <h3>Shaq Pi System Monitor</h3>
+            <p>CPU Usage: <span id="shaq_cpu"></span>%</p>
+            <p>RAM Usage: <span id="shaq_ram"></span>%</p>
+
+
+        </div>
+      
+        <div class="robot-block" id="kobe_data">
+            <h3>Kobe</h3>
+
+            <h3>/kobe/cmd_move/rpm</h3>
+            <p>Linear.x:
+                <div class="rpm-bar-container">
+                  <div id="kobe_move_linear_x" class="rpm-bar"></div>
+                </div>
+              </p>
+              <p>Linear.y:
+                <div class="rpm-bar-container">
+                  <div id="kobe_move_linear_y" class="rpm-bar"></div>
+                </div>
+              </p>
+       
+
+            <h3>/kobe/cmd_shoot/rpm</h3>
+            <div id="kobe_shoot">
+                <p>Linear.x:
+                <div class="rpm-bar-container">
+                  <div id="kobe_shoot_linear_x" class="rpm-bar"></div>
+                </div>
+              </p>
+              <p>Linear.y:
+                <div class="rpm-bar-container">
+                  <div id="kobe_shoot_linear_y" class="rpm-bar"></div>
+                </div>
+              </p>
+              <p>Linear.z:
+                <div class="rpm-bar-container">
+                  <div id="kobe_shoot_linear_z" class="rpm-bar"></div>
+                </div>
+              </p>
+              <p>Anuglar.x:
+                <div class="rpm-bar-container">
+                  <div id="kobe_shoot_angular_x" class="rpm-bar"></div>
+                </div>
+              </p>
+          
+            </div>
+
+            <h3>/kobe/send_where_hoop</h3>
+            <div id="kobe_hoop">
+            <p>Linear.x: <span id="kobe_hoop_linear_x"></span></p>
+            <p>Linear.y: <span id="kobe_hoop_linear_y"></span></p>
+            <p>Linear.z: <span id="kobe_hoop_linear_z"></span></p>
+            <p>Angular.x: <span id="kobe_hoop_angular_x"></span></p>
+            <p>Angular.y: <span id="kobe_hoop_angular_y"></span></p>
+            <p>Angular.z: <span id="kobe_hoop_angular_z"></span></p>
+            </div>
+
+            <h3>/kobe/distance/kobe</h3>
+            <div id="kobe_april">
+            <p>Linear.x: <span id="kobe_april_linear_x"></span></p>
+            <p>Linear.y: <span id="kobe_april_linear_y"></span></p>
+            <p>Linear.z: <span id="kobe_april_linear_z"></span></p>
+            <p>Angular.x: <span id="kobe_april_angular_x"></span></p>
+            <p>Angular.y: <span id="kobe_april_angular_y"></span></p>
+            <p>Angular.z: <span id="kobe_april_angular_z"></span></p>
+            </div>
+
+            <p>Kobe_imu: <span id = "kobe_imu_linear_x"></span></p>
+            <p>Kobe_Mode: <span id = "kobe_shoot_angular_x"></span></p>
+
+            
+        </div>
+      </div>
+      
+
+
+    <script>
+        // Connect to ROS2 WebSocket
+        var ros = new ROSLIB.Ros({
+            url: 'ws://localhost:9090'  // Ensure rosbridge_server is running
+        });
+
+        ros.on('connection', function() {
+            console.log('Connected to ROS2 WebSocket');
+        });
+
+        ros.on('error', function(error) {
+            console.log('Error connecting to ROS2:', error);
+        });
+
+        ros.on('close', function() {
+            console.log('Disconnected from ROS2');
+        });
+
+function subscribeToTwistTopic(topicName, htmlPrefix, isBarDisplay) {
+    const listener = new ROSLIB.Topic({
+        ros: ros,
+        name: topicName,
+        messageType: 'geometry_msgs/msg/Twist'
+    });
+
+    listener.subscribe(function(message) {
+        // Handle bar display if isBarDisplay is true
+        if (isBarDisplay) {
+            updateRpmBarIfExists(`${htmlPrefix}_linear_x`, message.linear.x);
+            updateRpmBarIfExists(`${htmlPrefix}_linear_y`, message.linear.y);
+            updateRpmBarIfExists(`${htmlPrefix}_linear_z`, message.linear.z);
+            updateRpmBarIfExists(`${htmlPrefix}_angular_x`, message.angular.x);
+            updateRpmBarIfExists(`${htmlPrefix}_angular_y`, message.angular.y);
+            updateRpmBarIfExists(`${htmlPrefix}_angular_z`, message.angular.z);
+        }
+        // Handle text display if isBarDisplay is false
+        else {
+            updateTextDisplay(`${htmlPrefix}_linear_x`, message.linear.x);
+            updateTextDisplay(`${htmlPrefix}_linear_y`, message.linear.y);
+            updateTextDisplay(`${htmlPrefix}_linear_z`, message.linear.z);
+            updateTextDisplay(`${htmlPrefix}_angular_x`, message.angular.x);
+            updateTextDisplay(`${htmlPrefix}_angular_y`, message.angular.y);
+            updateTextDisplay(`${htmlPrefix}_angular_z`, message.angular.z);
+        }
+    });
+}
+
+    function updateRpmBar(elementId, value) {
+        const maxRPM = 1023; // adjust this to your actual motor range
+        const bar = document.getElementById(elementId);
+        const clamped = Math.min(Math.abs(value), maxRPM);
+        const percent = (clamped / maxRPM) * 100;
+        bar.style.width = `${percent}%`;
+        bar.innerText = value.toFixed(1);
+
+        // Color change based on direction
+        bar.style.backgroundColor = value >= 0 ? '#4caf50' : '#f44336';
+    }
+
+    function updateRpmBarIfExists(elementId, value) {
+    const bar = document.getElementById(elementId);
+
+    // Check if the element exists
+    if (bar) {
+        const maxRPM = 1023; // Adjust this to your actual motor range
+        const clamped = Math.min(Math.abs(value), maxRPM);
+        const percent = (clamped / maxRPM) * 100;
+
+        // Update the width of the bar based on the RPM percentage
+        bar.style.width = `${percent}%`;
+
+        // Update the inner text to display the RPM value
+        bar.innerText = value.toFixed(1);
+
+        // Change the color based on the direction of the RPM
+        bar.style.backgroundColor = value >= 0 ? '#4caf50' : '#f44336';
+    }
+}
+
+function updateTextDisplay(elementId, value) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerText = value.toFixed(2);
+    }
+}
+
+
+subscribeToTwistTopic('/shaq/cmd_move/rpm', 'shaq_move',true);
+subscribeToTwistTopic('/shaq/cmd_shoot/rpm', 'shaq_shoot',true);
+subscribeToTwistTopic('/shaq/cmd_shoot/rpm','shaq_mode');
+subscribeToTwistTopic('/shaq/send_where_hoop','shaq_hoop');
+subscribeToTwistTopic('/shaq/distance/kobe','shaq_april');
+
+
+subscribeToTwistTopic('/kobe/cmd_move/rpm', 'kobe_move',true);
+subscribeToTwistTopic('/kobe/cmd_shoot/rpm','kobe_shoot',true);
+subscribeToTwistTopic('/kobe/imu/pos_angle','kobe_imu');
+subscribeToTwistTopic('/kobe/distance/shaq','kobe_april');
+subscribeToTwistTopic('/kobe/send_where_hoop','kobe_hoop');
+
+
+async function updateShaqPiStats() {
+    try {
+        const res = await fetch('http://127.0.0.1:5050/api/cpu');  // Replace with actual Pi IP
+        const data = await res.json();
+        document.getElementById('shaq_cpu').innerText = data.cpu.toFixed(1);
+        document.getElementById('shaq_ram').innerText = data.ram.toFixed(1);
+    } catch (error) {
+        console.error("Failed to fetch Shaq Pi stats:", error);
+        document.getElementById('shaq_cpu').innerText = "--";
+        document.getElementById('shaq_ram').innerText = "--";
+    }
+}
+
+setInterval(updateShaqPiStats, 2000);  // Update every 2s
+updateShaqPiStats(); // Initial load
+
+
+    </script>
+</body>
+</html>
