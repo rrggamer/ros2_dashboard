@@ -12,10 +12,10 @@
 </head>
 <body>
 
-    <div class="status-bar">
+    <!-- <div class="status-bar">
         <p>ROS Connection: <span id="ros_status" class="status-dot disconnected"></span></p>
         <p>Shaq Pi API: <span id="shaq_api_status" class="status-dot disconnected"></span></p>
-    </div>
+    </div> -->
     
 
 
@@ -34,50 +34,79 @@
                   <div id="shaq_move_linear_y" class="rpm-bar"></div>
                 </div>
               </p>
-              <p>Anuglar.x:
+              <p>Angular.x:
                 <div class="rpm-bar-container">
                   <div id="shaq_move_angular_x" class="rpm-bar"></div>
                 </div>
               </p>
-              <p>Anuglar.y:
+              <p>Angular.y:
                 <div class="rpm-bar-container">
                   <div id="shaq_move_angular_y" class="rpm-bar"></div>
                 </div>
               </p>
 
-            <h3>/shaq/cmd_shoot/rpm</h3>
-            <div id="shaq_shoot">
+            <h3>/shaq/debug/cmd_shoot/rpm</h3>
+            <div id="shaq_shoot_debug">
                 <p>Linear.x:
                     <div class="rpm-bar-container">
-                      <div id="shaq_shoot_linear_x" class="rpm-bar"></div>
+                      <div id="shaq_shoot_debug_linear_x" class="rpm-bar"></div>
                     </div>
                   </p>
                   <p>Linear.y:
                     <div class="rpm-bar-container">
-                      <div id="shaq_shoot_linear_y" class="rpm-bar"></div>
+                      <div id="shaq_shoot_debug_linear_y" class="rpm-bar"></div>
                     </div>
                   </p>
                   <p>Linear.z:
                     <div class="rpm-bar-container">
+                      <div id="shaq_shoot_debug_linear_z" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Angular.x:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_debug_angular_x" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Angular.y:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_debug_angular_y" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Angular.z:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_debug_angular_z" class="rpm-bar"></div>
+                    </div>
+                  </p>
+            
+            </div>
+
+            <h3>/shaq/cmd_shoot/rpm</h3>
+            <div id="shaq_shoot">
+                <p>Upper Motor:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_linear_x" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Lower Motor:
+                    <div class="rpm-bar-container">
+                      <div id="shaq_shoot_linear_y" class="rpm-bar"></div>
+                    </div>
+                  </p>
+                  <p>Feed Motor:
+                    <div class="rpm-bar-container">
                       <div id="shaq_shoot_linear_z" class="rpm-bar"></div>
                     </div>
                   </p>
-                  <p>Anuglar.x:
+                  <p>Shaq Tagging:
                     <div class="rpm-bar-container">
                       <div id="shaq_shoot_angular_x" class="rpm-bar"></div>
                     </div>
                   </p>
-                  <p>Anuglar.y:
+                  <p>Bit Or Rpm:
                     <div class="rpm-bar-container">
                       <div id="shaq_shoot_angular_y" class="rpm-bar"></div>
                     </div>
                   </p>
-                  <p>Anuglar.z:
-                    <div class="rpm-bar-container">
-                      <div id="shaq_shoot_angular_z" class="rpm-bar"></div>
-                    </div>
-                  </p>
-            
             </div>
 
             <h3>/shaq/send_where_hoop</h3>
@@ -100,25 +129,26 @@
             <p>Angular.z: <span id="shaq_april_angular_z"></span></p>
             </div>
 
-            <p>Shaq_Mode: <span id = "shaq_mode_angular_x"></span></p>
-
-            <h3>Shaq Pi System Monitor</h3>
-            <p>CPU Usage: <span id="shaq_cpu"></span>%</p>
-            <p>RAM Usage: <span id="shaq_ram"></span>%</p>
-
 
         </div>
       
         <div class="robot-block" id="kobe_data">
             <h3>Kobe</h3>
 
+            <h3>/kobe/cmd_servo/angle</h3>
+            <p>Servo Angle:
+                <div class="rpm-bar-container">
+                  <div id="kobe_servo_linear_x" class="rpm-bar"></div>
+                </div>
+              </p>
+
             <h3>/kobe/cmd_move/rpm</h3>
-            <p>Linear.x:
+            <p>Left Motor:
                 <div class="rpm-bar-container">
                   <div id="kobe_move_linear_x" class="rpm-bar"></div>
                 </div>
               </p>
-              <p>Linear.y:
+              <p>Right Motor:
                 <div class="rpm-bar-container">
                   <div id="kobe_move_linear_y" class="rpm-bar"></div>
                 </div>
@@ -127,22 +157,22 @@
 
             <h3>/kobe/cmd_shoot/rpm</h3>
             <div id="kobe_shoot">
-                <p>Linear.x:
+                <p>Upper Motor:
                 <div class="rpm-bar-container">
                   <div id="kobe_shoot_linear_x" class="rpm-bar"></div>
                 </div>
               </p>
-              <p>Linear.y:
+              <p>Lower Motor:
                 <div class="rpm-bar-container">
                   <div id="kobe_shoot_linear_y" class="rpm-bar"></div>
                 </div>
               </p>
-              <p>Linear.z:
+              <p>Feed Motor:
                 <div class="rpm-bar-container">
                   <div id="kobe_shoot_linear_z" class="rpm-bar"></div>
                 </div>
               </p>
-              <p>Anuglar.x:
+              <p>Kobe Tagging:
                 <div class="rpm-bar-container">
                   <div id="kobe_shoot_angular_x" class="rpm-bar"></div>
                 </div>
@@ -238,14 +268,20 @@ function subscribeToTwistTopic(topicName, htmlPrefix, isBarDisplay) {
         bar.style.backgroundColor = value >= 0 ? '#4caf50' : '#f44336';
     }
 
-    function updateRpmBarIfExists(elementId, value) {
-    const bar = document.getElementById(elementId);
+    const maxValuesMap = {
+    'shaq_shoot_angular_x': 3,
+    'shaq_shoot_angular_y': 2,
+    'kobe_shoot_angular_x': 3,
+    'kobe_servo_linear_x' : 180
+    
+};
 
-    // Check if the element exists
+  function updateRpmBarIfExists(elementId, value) {
+    const bar = document.getElementById(elementId);
     if (bar) {
-        const maxRPM = 1023; // Adjust this to your actual motor range
-        const clamped = Math.min(Math.abs(value), maxRPM);
-        const percent = (clamped / maxRPM) * 100;
+        const max =  maxValuesMap[elementId] || 1023; // Adjust this to your actual motor range
+        const clamped = Math.min(Math.abs(value), max);
+        const percent = (clamped / max) * 100;
 
         // Update the width of the bar based on the RPM percentage
         bar.style.width = `${percent}%`;
@@ -267,34 +303,18 @@ function updateTextDisplay(elementId, value) {
 
 
 subscribeToTwistTopic('/shaq/cmd_move/rpm', 'shaq_move',true);
+subscribeToTwistTopic('/shaq/debug/cmd_shoot/rpm', 'shaq_shoot_debug',true);
 subscribeToTwistTopic('/shaq/cmd_shoot/rpm', 'shaq_shoot',true);
-subscribeToTwistTopic('/shaq/cmd_shoot/rpm','shaq_mode');
 subscribeToTwistTopic('/shaq/send_where_hoop','shaq_hoop');
 subscribeToTwistTopic('/shaq/distance/kobe','shaq_april');
 
-
+subscribeToTwistTopic('/kobe/cmd_servo/angle', 'kobe_servo',true)
 subscribeToTwistTopic('/kobe/cmd_move/rpm', 'kobe_move',true);
 subscribeToTwistTopic('/kobe/cmd_shoot/rpm','kobe_shoot',true);
 subscribeToTwistTopic('/kobe/imu/pos_angle','kobe_imu');
 subscribeToTwistTopic('/kobe/distance/shaq','kobe_april');
 subscribeToTwistTopic('/kobe/send_where_hoop','kobe_hoop');
 
-
-async function updateShaqPiStats() {
-    try {
-        const res = await fetch('http://127.0.0.1:5050/api/cpu');  // Replace with actual Pi IP
-        const data = await res.json();
-        document.getElementById('shaq_cpu').innerText = data.cpu.toFixed(1);
-        document.getElementById('shaq_ram').innerText = data.ram.toFixed(1);
-    } catch (error) {
-        console.error("Failed to fetch Shaq Pi stats:", error);
-        document.getElementById('shaq_cpu').innerText = "--";
-        document.getElementById('shaq_ram').innerText = "--";
-    }
-}
-
-setInterval(updateShaqPiStats, 2000);  // Update every 2s
-updateShaqPiStats(); // Initial load
 
 
     </script>
